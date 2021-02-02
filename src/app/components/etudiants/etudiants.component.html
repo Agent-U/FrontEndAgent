@@ -1,0 +1,166 @@
+<h1>Liste des étudiants</h1>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#NouveauEtudiant" data-whatever="@getbootstrap">+ Nouveau</button>
+
+<br/><br/>
+<div class="modal fade" id="NouveauEtudiant" tabindex="-1" role="dialog" aria-labelledby="NouveauEtudiantLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="NouveauEtudiantLabel">Ajouter un nouvel étudiant</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputINE">INE</label>
+                            <input [(ngModel)]="mEtudiant.ine" name="ine" type="text" class="form-control" id="inputINE" placeholder="INE">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputNom">Nom</label>
+                            <input [(ngModel)]="mEtudiant.nom" name="nom" type="text" class="form-control" id="inputNom" placeholder="Nom">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputPrenom">Prenom</label>
+                            <input [(ngModel)]="mEtudiant.prenom" name="prenom" type="text" class="form-control" id="inputPrenom" placeholder="Prenom">
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail">Email</label>
+                            <input [(ngModel)]="mEtudiant.mail" name="mail" type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputChambre">Chambre</label>
+                            <input [(ngModel)]="mEtudiant.chambre" name="chambre" type="text" class="form-control" id="inputChambre" placeholder="Chambre">
+                        </div>
+                    </div>
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button (click)="resteEtudiant()" type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <button (click)="persistEtudiant()" type="button" class="btn btn-primary">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <table id="example" class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+
+            <tr>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="ine">INE</th>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="nom">Nom</th>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="prenom">Prenom</th>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="mail">@mail</th>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="chambre">Chambre</th>
+                <th scope="col">Operations</th>
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let etu of etudiants ">
+                <td>{{ etu.ine }}</td>
+                <td>{{ etu.nom }}</td>
+                <td>{{ etu.prenom}}</td>
+                <td>{{ etu.mail}}</td>
+                <td>{{ etu.chambre}}</td>
+                <td tyle="width: 5.0%">
+                    <div class="text-center">
+                        <button (click)="editEtudiant(etu)" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ModifierEtudiant" data-whatever="@getbootstrap">
+                            <i class="fa fa-pencil"></i>
+                        </button> &nbsp;
+
+
+                        <button (click)="deleteEtudiant(etu.ine)" class="btn btn-sm btn-dark">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+
+
+
+                <div class="modal fade" id="ModifierEtudiant" tabindex="-1" role="dialog" aria-labelledby="ModifierEtudiantLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModifierEtudiantLabel">Modifier l'etudiant</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="inputINE">INE</label>
+                                            <input [(ngModel)]="mEtudiant.ine" name="ine" type="text" class="form-control" id="inputINE2" placeholder="INE">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputNom">Nom</label>
+                                            <input [(ngModel)]="mEtudiant.nom" name="nom" type="text" class="form-control" id="inputNom2" placeholder="Nom">
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label for="inputPrenom">Prenom</label>
+                                            <input [(ngModel)]="mEtudiant.prenom" name="prenom" type="text" class="form-control" id="inputPrenom2" placeholder="Prenom">
+                                        </div>
+
+
+                                        <div class="form-group col-md-6">
+                                            <label for="inputEmail">Email</label>
+                                            <input [(ngModel)]="mEtudiant.mail" name="mail" type="email" class="form-control" id="inputEmail2" placeholder="Email">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="inputChambre">Chambre</label>
+                                            <input [(ngModel)]="mEtudiant.chambre" name="chambre" type="text" class="form-control" id="inputChambre2" placeholder="Chambre">
+                                        </div>
+                                    </div>
+
+
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button (click)="resteEtudiant()" type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                <button (click)="updateEtudiant()" type="button" class="btn btn-primary">Modifier</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+
+</div>
