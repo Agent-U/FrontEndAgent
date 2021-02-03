@@ -17,6 +17,10 @@ export class EtudiantService {
     
   }
 
+
+
+  
+
   delete(id : any){
     return this.http.delete(`${this.apiUrl}delete/${id}`);
   }

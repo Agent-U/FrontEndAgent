@@ -9,5 +9,10 @@ export interface Etudiant {
         avisPassage: number;
         colis: number;
         chambre: string;
+
+        datePetiteEnveloppe: any;
+        dateGrandeEnveloppe: any;
+        dateAvisPassage: any;
+        dateColis: any;
 }
 

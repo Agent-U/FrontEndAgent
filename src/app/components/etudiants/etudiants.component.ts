@@ -22,12 +22,16 @@ export class EtudiantsComponent implements OnInit {
     grandeEnveloppe: 0,
     avisPassage: 0,
     colis: 0,
-    chambre: ''
+    chambre: '',
+    datePetiteEnveloppe: '',
+    dateGrandeEnveloppe: '',
+    dateAvisPassage: '',
+    dateColis: '',
   }
 
 
 
-  messageAdd:any;
+
 
   constructor(private etudiantService: EtudiantService ) { }
 
@@ -65,6 +69,7 @@ export class EtudiantsComponent implements OnInit {
     this.mEtudiant.grandeEnveloppe = etu.grandeEnveloppe;
     this.mEtudiant.avisPassage = etu.avisPassage;
     this.mEtudiant.colis = etu.colis;
+    this.mEtudiant.dateColis = etu.dateColis;
     this.mEtudiant.chambre = etu.chambre;
   }
 
@@ -87,7 +92,12 @@ export class EtudiantsComponent implements OnInit {
       grandeEnveloppe: 0,
       avisPassage: 0,
       colis: 0,
-      chambre: ''
+      chambre: '',
+      datePetiteEnveloppe: '',
+      dateGrandeEnveloppe: '',
+      dateAvisPassage: '',
+      dateColis: '',
+
     }
   }
 

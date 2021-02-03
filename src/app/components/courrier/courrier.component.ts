@@ -9,8 +9,12 @@ import { EtudiantService } from 'src/app/services/etudiant.service';
 })
 export class CourrierComponent implements OnInit {
 
+  editCourrier = false;
+ 
+
   etudiants: Etudiant[] = [];
 
+  etudiantsToCompareWith: Etudiant[] = [];
 
   mEtudiant: Etudiant ={
     ine: '',
@@ -22,74 +26,126 @@ export class CourrierComponent implements OnInit {
     grandeEnveloppe: 0,
     avisPassage: 0,
     colis: 0,
-    chambre: ''
+    chambre: '',
+    datePetiteEnveloppe: '',
+    dateGrandeEnveloppe: '',
+    dateAvisPassage: '',
+    dateColis: '',
   }
 
-
-
-  messageAdd:any;
 
   constructor(private etudiantService: EtudiantService ) { }
 
   ngOnInit() {
     this.getEtudiants();
+
   }
+
+
+  
 
   getEtudiants(){
     this.etudiantService.findAll()
-    .subscribe(etus => this.etudiants = etus)
+    .subscribe(etus => this.etudiants = etus );
+
+    this.etudiantService.findAll()
+    .subscribe(etus => this.etudiantsToCompareWith = etus );
+    
   }
 
-  deleteEtudiant(ine : any){
-    this.etudiantService.delete(ine)
-    .subscribe(() => {
-      this.etudiants = this.etudiants.filter(etudiant => etudiant.ine != ine)
-    })
+
+  editEtudiant(etu : any, i: number){
+    this.etudiants[i].ine = etu.ine;
+    this.etudiants[i].nom = etu.nom;
+    this.etudiants[i].prenom = etu.prenom;
+    this.etudiants[i].mail = etu.mail;
+    this.etudiants[i].motDePasse = etu.motDePasse;
+    this.etudiants[i].petiteEnveloppe = etu.petiteEnveloppe;
+    this.etudiants[i].grandeEnveloppe = etu.grandeEnveloppe;
+    this.etudiants[i].avisPassage = etu.avisPassage;
+    this.etudiants[i].colis = etu.colis;
+    this.etudiants[i].chambre = etu.chambre;
+    this.etudiants[i].datePetiteEnveloppe = etu.datePetiteEnveloppe;
+    this.etudiants[i].dateGrandeEnveloppe = etu.dateGrandeEnveloppe;
+    this.etudiants[i].dateAvisPassage = etu.dateAvisPassage;
+    this.etudiants[i].dateColis = etu.dateColis;
+
   }
 
-  persistEtudiant(){
-    this.etudiantService.persist(this.mEtudiant)
-    .subscribe((etu) => {
-        this.etudiants = [etu, ...this.etudiants];
-        this.resteEtudiant();
-    })
-  }
 
-  editEtudiant(etu : any){
-    this.mEtudiant.ine = etu.ine;
-    this.mEtudiant.nom = etu.nom;
-    this.mEtudiant.prenom = etu.prenom;
-    this.mEtudiant.mail = etu.mail;
-    this.mEtudiant.motDePasse = etu.motDePasse;
-    this.mEtudiant.petiteEnveloppe = etu.petiteEnveloppe;
-    this.mEtudiant.grandeEnveloppe = etu.grandeEnveloppe;
-    this.mEtudiant.avisPassage = etu.avisPassage;
-    this.mEtudiant.colis = etu.colis;
-    this.mEtudiant.chambre = etu.chambre;
-  }
+  updateEtudiant(i: number){
+    var today = new Date();
 
-  updateEtudiant(){
+    
+    this.mEtudiant.ine = this.etudiants[i].ine;
+    this.mEtudiant.nom = this.etudiants[i].nom;
+    this.mEtudiant.prenom = this.etudiants[i].prenom;
+    this.mEtudiant.mail = this.etudiants[i].mail;
+    this.mEtudiant.motDePasse = this.etudiants[i].motDePasse;
+    this.mEtudiant.petiteEnveloppe = this.etudiants[i].petiteEnveloppe;
+    this.mEtudiant.grandeEnveloppe = this.etudiants[i].grandeEnveloppe;
+    this.mEtudiant.avisPassage = this.etudiants[i].avisPassage;
+    this.mEtudiant.colis = this.etudiants[i].colis;
+    this.mEtudiant.chambre = this.etudiants[i].chambre;
+    this.mEtudiant.datePetiteEnveloppe = this.etudiants[i].datePetiteEnveloppe;
+    this.mEtudiant.dateGrandeEnveloppe = this.etudiants[i].dateGrandeEnveloppe;
+    this.mEtudiant.dateAvisPassage = this.etudiants[i].dateAvisPassage;
+    this.mEtudiant.dateColis = this.etudiants[i].dateColis;
+
+
+    if(this.mEtudiant.grandeEnveloppe != this.etudiantsToCompareWith[i].grandeEnveloppe){
+      this.mEtudiant.dateGrandeEnveloppe = today;
+    }
+
+    if(this.mEtudiant.petiteEnveloppe != this.etudiantsToCompareWith[i].petiteEnveloppe){
+      this.mEtudiant.datePetiteEnveloppe = today;
+    }
+    
+    if(this.mEtudiant.avisPassage != this.etudiantsToCompareWith[i].avisPassage){
+      this.mEtudiant.dateAvisPassage = today;
+    }
+    if(this.mEtudiant.colis != this.etudiantsToCompareWith[i].colis){
+      this.mEtudiant.dateColis = today;
+    }
+
     this.etudiantService.update(this.mEtudiant)
     .subscribe((etu) => {
-      this.resteEtudiant();
+      
     })
   }
 
+  updateEtudiantZeroCourrier(i: number){
+    var today = new Date();
 
-  resteEtudiant(){
-    this.mEtudiant = {
-      ine: '',
-      nom: '',
-      prenom: '',
-      mail: '',
-      motDePasse: '',
-      petiteEnveloppe: 0,
-      grandeEnveloppe: 0,
-      avisPassage: 0,
-      colis: 0,
-      chambre: ''
-    }
+    this.mEtudiant.ine = this.etudiants[i].ine;
+    this.mEtudiant.nom = this.etudiants[i].nom;
+    this.mEtudiant.prenom = this.etudiants[i].prenom;
+    this.mEtudiant.mail = this.etudiants[i].mail;
+    this.mEtudiant.motDePasse = this.etudiants[i].motDePasse;
+    this.mEtudiant.petiteEnveloppe = 0;
+    this.mEtudiant.grandeEnveloppe = 0;
+    this.mEtudiant.avisPassage = 0;
+    this.mEtudiant.colis = 0;
+    this.mEtudiant.chambre = this.etudiants[i].chambre;
+
+    this.mEtudiant.dateGrandeEnveloppe = today;
+    this.mEtudiant.datePetiteEnveloppe = today;
+    this.mEtudiant.dateAvisPassage = today;
+    this.mEtudiant.dateColis = today;
+
+    this.etudiantService.update(this.mEtudiant)
+    .subscribe((etu) => {
+      this.getEtudiants();
+    })
+
+    
+   
   }
+
+
+
+
+
 
 
 
