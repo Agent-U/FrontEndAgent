@@ -6,19 +6,17 @@ import { AppComponent } from './app.component';
 import { EtudiantsComponent } from './components/etudiants/etudiants.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
-
+import {MatRadioModule} from '@angular/material/radio';
 import {HttpClientModule } from '@angular/common/http';
 import {FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { DataTablesModule } from 'angular-datatables';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SortDirective } from './directive/sort.directive';
-import { ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CourrierComponent } from './components/courrier/courrier.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
-
-
-
+import { IncidentComponent } from './components/incident/incident.component';
 
 
 
@@ -29,14 +27,8 @@ import { AccueilComponent } from './components/accueil/accueil.component';
     EtudiantsComponent,
     SortDirective,
     CourrierComponent,
-    AccueilComponent
-
-    
-    
-
-    
-     
-    
+    AccueilComponent,
+    IncidentComponent    
   ],
   imports: [
     BrowserModule,
@@ -46,10 +38,15 @@ import { AccueilComponent } from './components/accueil/accueil.component';
     MatTableModule,
     BrowserAnimationsModule,
     DataTablesModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    MatRadioModule
+    
   ],
+  exports: [],
+
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,IncidentComponent],
+  schemas: []
+  
 })
 export class AppModule { }

@@ -13,9 +13,15 @@
    
 }
 
+.mat-radio-group{
+  position: absolute;
+    margin-left : 20px;
+    bottom: 0px;
+}
+
 .mat-radio-button ~ .mat-radio-button {
     margin-left: 16px;
-    margin-top: 0%;
+    
    
   }
   .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
@@ -29,5 +35,10 @@
   
   .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
       background-color:rgb(255, 37, 37,.26);
+  }
+
+  #img-incident{
+    height: 250px; 
+    width: 500px;
   }
   

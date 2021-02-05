@@ -18,10 +18,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let incident of incidents " (click)="openXl(content, incident)">
-                <td>{{ incident.motif}}</td>
-                <td>{{ incident.lieu}}</td>
-                <td>{{ incident.date}}</td>
-                <td>{{ incident.etudiant.ine}}</td>
+                <td>{{ incident?.motif}}</td>
+                <td>{{ incident?.lieu}}</td>
+                <td>{{ incident?.date}}</td>
+                <td>{{ incident?.etudiant.ine}}</td> 
                 <td [ngSwitch]="incident.etat">
                     <div id="Encours" *ngSwitchCase="1">En cours</div>
                     <div id="Recolu" *ngSwitchCase="2">Résolu</div>
@@ -50,24 +50,40 @@
     <div class="modal-body">
         <div class="row">
             <div class="col">
-                <h4>{{incident.motif}}</h4>
-                <p>{{incident.description}}</p>
+                <h4>{{incident?.motif}}</h4>
+                <p>{{incident?.description}}</p>
                 <div class="row">
                     <mat-radio-group aria-label="Select an option">
-                        <mat-radio-button value="3">Non traité</mat-radio-button>
-                        <mat-radio-button value="1">En cours</mat-radio-button>
-                        <mat-radio-button value="2">Résolu</mat-radio-button>
+
+                        <div [ngSwitch]="incident.etat">
+                            <div id="1" *ngSwitchCase="1">
+                                <mat-radio-button value="0" (change)="radioChange($event,0)">Non traité</mat-radio-button>
+                                <mat-radio-button value="1" (change)="radioChange($event,1)" checked>En cours</mat-radio-button>
+                                <mat-radio-button value="2" (change)="radioChange($event,2)" >Résolu</mat-radio-button>
+                            </div>
+                            <div id="1" *ngSwitchCase="2">
+                                <mat-radio-button value="0" (change)="radioChange($event,0)">Non traité</mat-radio-button>
+                                <mat-radio-button value="1" (change)="radioChange($event,1)" >En cours</mat-radio-button>
+                                <mat-radio-button value="2" (change)="radioChange($event,2)" checked>Résolu</mat-radio-button>
+                            </div>
+                            <div id="1" *ngSwitchDefault>
+                                <mat-radio-button value="0" (change)="radioChange($event,0)" checked>Non traité</mat-radio-button>
+                                <mat-radio-button value="1" (change)="radioChange($event,1)" >En cours</mat-radio-button>
+                                <mat-radio-button value="2" (change)="radioChange($event,2)">Résolu</mat-radio-button>
+                            </div>
+                        </div>
+                       
                     </mat-radio-group>
                 </div>
             </div>
             <div class="col">
-                <img src="src/assets/crous.jpg" class="img-fluid"/>
+                <img id="img-incident" src="../../assets/crous.jpg" class="img-fluid"/>
             </div>
 
         </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Fermer</button>
     </div>
   </ng-template>
   

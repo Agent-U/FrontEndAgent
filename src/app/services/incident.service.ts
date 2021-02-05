@@ -20,6 +20,14 @@ export class IncidentService {
   public getAllIncident(){
     return this.http.get("api/incidents/",optionRequete);
      
-   }
+  }
  
+  public getIncidentById(id : number){
+    return this.http.get("api/incidents/"+id,optionRequete);
+     
+  }
+ 
+  public updateIncident(incident : any){
+    return this.http.put("api/incidents/",incident,optionRequete)
+  }
 }
