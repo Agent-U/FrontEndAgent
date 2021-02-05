@@ -1,5 +1,6 @@
+<br/>
 <h1>Gestion de Courriers</h1>
-
+<br/><br/><br/>
 
 
 <div class="row">
@@ -41,31 +42,35 @@
                     <div class="text-center">{{ etu.chambre}}</div>
                 </td>
                 <td>
-                    <div class="text-center"><input [(ngModel)]="etudiants[i].petiteEnveloppe" type="number" id="inputSpinPetitEnvloppe" value='{{ etu.petiteEnveloppe}}' min="0" class="col-md-4"> </div>
+                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].petiteEnveloppe" type="number" id="inputSpinPetitEnvloppe" value='{{ etu.petiteEnveloppe}}' min="0" class="col-md-4"> </div>
                 </td>
                 <td>
-                    <div class="text-center"><input [(ngModel)]="etudiants[i].grandeEnveloppe" type="number" id="inputGrandeEnveloppe" value='{{ etu.grandeEnveloppe}}' min="0" class="col-md-4"></div>
+                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].grandeEnveloppe" type="number" id="inputGrandeEnveloppe" value='{{ etu.grandeEnveloppe}}' min="0" class="col-md-4"></div>
                 </td>
                 <td>
-                    <div class="text-center"><input [(ngModel)]="etudiants[i].avisPassage" type="number" id="inputAvisPassage" value='{{ etu.avisPassage}}' min="0" class="col-md-4"></div>
+                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].avisPassage" type="number" id="inputAvisPassage" value='{{ etu.avisPassage}}' min="0" class="col-md-4"></div>
                 </td>
                 <td>
-                    <div class="text-center"><input [(ngModel)]="etudiants[i].colis" type="number" id="inputSpinColis" value='{{ etu.colis}}' min="0" class="col-md-4"></div>
+                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].colis" type="number" id="inputSpinColis" value='{{ etu.colis}}' min="0" class="col-md-4"></div>
                 </td>
                 <td tyle="width: 5.0%">
                     <div class="text-center">
 
-                        <button class="btn btn-sm btn-dark">
-                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-                        </button> &nbsp;
 
-                        <button (click)="updateEtudiant(i)" class="btn btn-sm btn-dark">
-                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                        </button>&nbsp;
 
-                        <button (click)="updateEtudiantZeroCourrier(i)" class="btn btn-warning btn-sm">
-                            <i class="fa fa-refresh" aria-hidden="true"></i>
-                        </button> s
+                        <button *ngIf="editCourrier[i]" id="btnToSave " (click)="updateEtudiant(i) " class="btn btn-danger btn-sm ">
+                            <i class="fa fa-save " aria-hidden="true" id="ibtnToSave "></i>                            
+                        </button>
+
+                        <button *ngIf="!editCourrier[i]" id="btnSaved" class="btn btn-link btn-sm" DISABLED>
+                            <i class="fa fa-check-square-o fa-lg" aria-hidden="true" id="ibtnToSave " style="color:green"></i>
+                        </button>
+
+                        <button (click)="updateEtudiantZeroCourrier(i) " class="btn btn-warning btn-sm active">
+                            <i class="fa fa-refresh " aria-hidden="true "></i>
+                        </button>
+
+
 
                     </div>
                 </td>

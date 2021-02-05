@@ -9,7 +9,7 @@ import { EtudiantService } from 'src/app/services/etudiant.service';
 })
 export class CourrierComponent implements OnInit {
 
-  editCourrier = false;
+  editCourrier: boolean[] = [];
  
 
   etudiants: Etudiant[] = [];
@@ -110,7 +110,7 @@ export class CourrierComponent implements OnInit {
 
     this.etudiantService.update(this.mEtudiant)
     .subscribe((etu) => {
-      
+      this.DisplayToSaveBtn(i);
     })
   }
 
@@ -135,18 +135,43 @@ export class CourrierComponent implements OnInit {
 
     this.etudiantService.update(this.mEtudiant)
     .subscribe((etu) => {
-      this.getEtudiants();
+      this.etudiants[i].petiteEnveloppe = 0;
+      this.etudiants[i].grandeEnveloppe = 0;
+      this.etudiants[i].avisPassage = 0;
+      this.etudiants[i].colis = 0;
     })
 
+    //this.DisplaySaveBtn();
+
+  }
+
+  DisplaySaveBtn(ind: any){
+    for (let i = 0; i < this.etudiants.length; i++) {
+      this.editCourrier.push(false)
+    }
+    this.editCourrier[ind] = true;
     
-   
+  }
+
+  DisplayToSaveBtn(ind: any){
+    this.editCourrier[ind] = false;
+    
   }
 
 
+  //onClick="this.style.visibility='hidden'"
+  //let togg1 = document.getElementById("inputSpinColis");
+  /*
+  public DisplaySaveBtn(){
 
+    let bs = document.getElementById("btnToSave");
+    if(bs!= null){
+      
+       bs.style.visibility='hidden';
 
-
-
-
+    }
+        
+  }
+  */
 
 }
