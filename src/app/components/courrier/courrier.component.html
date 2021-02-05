@@ -1,0 +1,85 @@
+<br/>
+<h1>Gestion de Courriers</h1>
+<br/><br/><br/>
+
+
+<div class="row">
+    <table id="example" class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+
+            <tr>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="ine">INE</th>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="nom">Nom</th>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="prenom">Prenom</th>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="mail">@mail</th>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="chambre">Chambre</th>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="petiteEnveloppe">Petites enveloppes</th>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="grandeEnveloppe">Grandes enveloppes</th>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="avisPassage">Avis de passages</th>
+                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="colis">Colis</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let etu of etudiants  let i = index">
+
+
+
+                <td>
+
+                    <div class="text-center">{{ etu.ine }}</div>
+                </td>
+                <td>
+                    <div class="text-center">{{ etu.nom }}</div>
+                </td>
+                <td>
+                    <div class="text-center">{{ etu.prenom}}</div>
+                </td>
+                <td>
+                    <div class="text-center">{{ etu.mail}}</div>
+                </td>
+                <td>
+                    <div class="text-center">{{ etu.chambre}}</div>
+                </td>
+                <td>
+                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].petiteEnveloppe" type="number" id="inputSpinPetitEnvloppe" value='{{ etu.petiteEnveloppe}}' min="0" class="col-md-4"> </div>
+                </td>
+                <td>
+                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].grandeEnveloppe" type="number" id="inputGrandeEnveloppe" value='{{ etu.grandeEnveloppe}}' min="0" class="col-md-4"></div>
+                </td>
+                <td>
+                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].avisPassage" type="number" id="inputAvisPassage" value='{{ etu.avisPassage}}' min="0" class="col-md-4"></div>
+                </td>
+                <td>
+                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].colis" type="number" id="inputSpinColis" value='{{ etu.colis}}' min="0" class="col-md-4"></div>
+                </td>
+                <td tyle="width: 5.0%">
+                    <div class="text-center">
+
+
+
+                        <button *ngIf="editCourrier[i]" id="btnToSave " (click)="updateEtudiant(i) " class="btn btn-danger btn-sm ">
+                            <i class="fa fa-save " aria-hidden="true" id="ibtnToSave "></i>                            
+                        </button>
+
+                        <button *ngIf="!editCourrier[i]" id="btnSaved" class="btn btn-link btn-sm" DISABLED>
+                            <i class="fa fa-check-square-o fa-lg" aria-hidden="true" id="ibtnToSave " style="color:green"></i>
+                        </button>
+
+                        <button (click)="updateEtudiantZeroCourrier(i) " class="btn btn-warning btn-sm active">
+                            <i class="fa fa-refresh " aria-hidden="true "></i>
+                        </button>
+
+
+
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+
+</div>
