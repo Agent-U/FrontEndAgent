@@ -1,0 +1,33 @@
+#Encours{
+    color: blue;
+    font-style: oblique;
+}
+#Recolu{
+    color:green;
+    font-style: oblique;
+}
+
+#NonTraite{
+    color:red;
+    font-style: oblique;
+   
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+    margin-top: 0%;
+   
+  }
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color: #77D353; 
+  }
+  
+  .mat-radio-button.mat-accent .mat-radio-inner-circle{
+    color:rgb(66, 134, 244);
+    background-color:#77D353;
+  }
+  
+  .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+      background-color:rgb(255, 37, 37,.26);
+  }
+  

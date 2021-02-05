@@ -1,0 +1,73 @@
+<h1>Gestion d'incidents</h1>
+
+<div class="row">
+    <table id="example" class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+
+            <tr>
+                <th scope="col" [appSort]="incidents" data-order="desc" data-name="motif">Incident</th>
+                <th scope="col" [appSort]="incidents" data-order="desc" data-name="lieu">Lieu</th>
+                <th scope="col" [appSort]="incidents" data-order="desc" data-name="date">Date</th>
+                <th scope="col" [appSort]="incidents" data-order="desc" data-name="resident">Résident</th>
+                <th scope="col" [appSort]="incidents" data-order="desc" data-name="etat">État</th>
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let incident of incidents " (click)="openXl(content, incident)">
+                <td>{{ incident.motif}}</td>
+                <td>{{ incident.lieu}}</td>
+                <td>{{ incident.date}}</td>
+                <td>{{ incident.etudiant.ine}}</td>
+                <td [ngSwitch]="incident.etat">
+                    <div id="Encours" *ngSwitchCase="1">En cours</div>
+                    <div id="Recolu" *ngSwitchCase="2">Résolu</div>
+                    <div id="NonTraite" *ngSwitchDefault>Non traité</div> 
+                </td>
+                
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header" style="background-color: #EEEEEE;">
+      
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col">
+                <h4>{{incident.motif}}</h4>
+                <p>{{incident.description}}</p>
+                <div class="row">
+                    <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="3">Non traité</mat-radio-button>
+                        <mat-radio-button value="1">En cours</mat-radio-button>
+                        <mat-radio-button value="2">Résolu</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col">
+                <img src="src/assets/crous.jpg" class="img-fluid"/>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+  
