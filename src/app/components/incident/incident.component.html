@@ -19,8 +19,8 @@
         <tbody>
             <tr *ngFor="let incident of incidents " (click)="openXl(content, incident)">
                 <td>{{ incident?.motif}}</td>
-                <td>{{ incident?.lieu}}</td>
-                <td>{{ incident?.date}}</td>
+                <td>{{incident?.lieu}}</td>
+                <td >{{incident?.date.substring(8, 10)}}/{{incident?.date.substring(5, 7)}}/{{incident?.date.substring(0, 4)}}</td>
                 <td>{{ incident?.etudiant.ine}}</td> 
                 <td [ngSwitch]="incident.etat">
                     <div id="Encours" *ngSwitchCase="1">En cours</div>

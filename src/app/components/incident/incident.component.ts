@@ -31,7 +31,7 @@ export class IncidentComponent implements OnInit {
   }
 
   public getDate(date :Date){
-    return date.getTimezoneOffset()
+    return date.getDay();
   }
 
   openXl(content : any, incident : any) {
