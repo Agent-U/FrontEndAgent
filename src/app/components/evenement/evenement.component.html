@@ -39,6 +39,72 @@
     
             </table>
             
+            <div class=" text-center">
+                                <br><br>
+                                <button  data-toggle="modal" data-target="#AjouterEvenement" data-whatever="@getbootstrap"  class="btn btn-lg btn-dark ">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+            </div>
+
+
+            <!-- modal-->
+
+
+
+
+            <div class="modal fade" id="AjouterEvenement" tabindex="-1" role="dialog" aria-labelledby="AjouterEvenementLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="AjouterEvenementLabel"> Ajouter un evenement</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="inputTitre">Titre</label>
+                                        <input [(ngModel)]="evenementNouveau.titre" name="ine" type="text" class="form-control" id="inputTitre" placeholder="Titre">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="inputTitre">Detail</label>
+                                        <textarea [(ngModel)]="evenementNouveau.detail" name="ine" type="text" class="form-control" id="inputTitre" placeholder="Titre">
+                                            </textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="inputTitre">Image</label>
+                                        <input type="file" (change)="onFileChanged($event)">
+                                    </div>
+                                </div>
+
+
+
+
+                            </form>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button  type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button (click)="ajouterEvenemet()" type="button" class="btn btn-primary">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!--modal-->
+
         </div>
 
     </div>
@@ -46,7 +112,7 @@
 
     <div class="card">
 
-        <img *ngIf=" evenementDetail != null " src="{{evenementDetail.image_url}}" alt="image" id="imageEvent"/>
+        <img *ngIf=" evenementDetail != null " src="assets/evenement/{{evenementDetail.image_url}}" alt="image" id="imageEvent"/>
 
 
     </div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Evenement } from 'src/app/models/evenement';
 import { EvenementService } from 'src/app/services/evenement.service';
 
 @Component({
@@ -10,10 +13,17 @@ export class EvenementComponent implements OnInit {
 
   evemenetsListe : any;
   evenementDetail : any = null;
-  constructor(private service : EvenementService) { }
+  evenementNouveau : Evenement = new Evenement();
+  uploadForm: any ; 
+  constructor(private formBuilder: FormBuilder, private service : EvenementService) { 
+  }
 
   ngOnInit(): void {
     this.getEvenemets();
+
+    this.uploadForm = this.formBuilder.group({
+      profile: ['']
+    });
   }
 
   getEvenemets(){
@@ -24,12 +34,37 @@ export class EvenementComponent implements OnInit {
   deleteEvenemet(even : any){
     this.service.deleteEvenement(even.id)
     .subscribe(() => {
-      //this.listeRendezVous = this.listeRendezVous.filter((rendezVous: { id: number; })=> rendezVous.id != rendezVousDelete.id)
+      this.evemenetsListe = this.evemenetsListe.filter((evenement: { id: number; })=> evenement.id != even.id)
     });
   }
 
   afficherDetail(even : any){
     this.evenementDetail = even;
+  }
+
+  ajouterEvenemet(){
+
+
+   const formData = new FormData();
+   formData.append('file', this.uploadForm.get('profile').value);
+      
+   this.service.upPic(formData).subscribe()
+
+
+    
+     this.evenementNouveau.image_url = this.uploadForm.get('profile').value.name;
+      this.service.addEvenement(this.evenementNouveau)
+      .subscribe((even) => {
+        this.evemenetsListe = [even, ...this.evemenetsListe];
+    })
+  }
+
+  onFileChanged(event : any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.uploadForm.get('profile').setValue(file);
+    }
+
   }
 
 }

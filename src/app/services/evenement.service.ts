@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const optionRequete = {
@@ -34,6 +33,15 @@ export class EvenementService {
     return this.http.delete("/api/evenements/delete/"+id,optionRequete);
   } 
   
+  public upPic(file:any){
+    return this.http.post<any>("/api/evenements/upImg/",file,optionRequete);
+  } 
+
+  public uploadImage(file:any){
+    alert("here");
+     return this.http.delete("/api/evenements/delete/"+2,optionRequete);
+    //return this.http.post("/evenements/upImg",file,optionRequete);
+  } 
 
 
 }
