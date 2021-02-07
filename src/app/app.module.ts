@@ -16,14 +16,12 @@ import { SortDirective } from './directive/sort.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CourrierComponent } from './components/courrier/courrier.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import { RendezVousComponent } from './components/rendez-vous/rendez-vous.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { IncidentComponent } from './components/incident/incident.component';
 
 import { EvenementComponent } from './components/evenement/evenement.component';
-
-
-
-
 
 
 
@@ -35,6 +33,7 @@ import { EvenementComponent } from './components/evenement/evenement.component';
     SortDirective,
     CourrierComponent,
     AccueilComponent,
+    RendezVousComponent
     IncidentComponent,  
     EvenementComponent
   ],
@@ -47,8 +46,8 @@ import { EvenementComponent } from './components/evenement/evenement.component';
     BrowserAnimationsModule,
     DataTablesModule,
     ReactiveFormsModule,
+    BsDatepickerModule.forRoot()
     MatRadioModule
-    
   ],
   exports: [],
 

@@ -45,13 +45,16 @@ export class EtudiantsComponent implements OnInit {
   }
 
   deleteEtudiant(ine : any){
-    this.etudiantService.delete(ine)
-    .subscribe(() => {
-      this.etudiants = this.etudiants.filter(etudiant => etudiant.ine != ine)
-    })
+    if(confirm("Are you sure to delete ")) {
+      this.etudiantService.delete(ine)
+      .subscribe(() => {
+        this.etudiants = this.etudiants.filter(etudiant => etudiant.ine != ine)
+      })
+    }
   }
 
   persistEtudiant(){
+    this.mEtudiant.motDePasse= this.mEtudiant.nom +'-'+this.mEtudiant.prenom +'-'+this.mEtudiant.ine;
     this.etudiantService.persist(this.mEtudiant)
     .subscribe((etu) => {
         this.etudiants = [etu, ...this.etudiants];

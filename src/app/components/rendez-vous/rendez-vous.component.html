@@ -1,0 +1,127 @@
+<br/>
+<h1>Gestion des Rendez-vous</h1>
+<br/><br/><br/>
+
+
+<div class="card-deck">
+    <div class="card">
+
+        <div class="modal-body">
+
+            <form>
+
+                <hr/>
+                <label for="dateRdv">Ajouter un Nouvel agent</label>
+                <div class="form-row ">
+
+                    <div class="form-group col-md-3">
+                        <input [(ngModel)]="mAgent.nom" name="nom" type="text" class="form-control" id="inputNom" placeholder="Nom" required>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <input [(ngModel)]="mAgent.prenom" name="prenom" type="text" class="form-control" id="inputPrenom" placeholder="Prenom">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <button (click)="persistAgent()" id="btnToSave " class="btn btn-success btn-lg">
+                            <i class="fa fa-save " aria-hidden="true" id="ibtnToSave "></i>                            
+                        </button>
+                    </div>
+                </div>
+                <hr/>
+                <div class="form-row ">
+
+                    <div class="form-group col-md-6">
+                        <select id="inputState" class="form-control">
+                            <option selected (click)="getAllRDV()">Veuillez selectionner un agent</option>
+                            <option *ngFor="let ag of lesAgents" (click)="rdvAgent(ag)">{{ag.nom}} {{ag.prenom}}</option>
+                        </select>
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="form-row col-md-8">
+
+                    <div class="form-group col-md-6">
+                        <label for="dateRdv">Date du rendez-vous</label>
+                        <input id="dateR" name="myDate" [(ngModel)]="dateRdv" type="date" class="form-control col-md-12">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="dateRdv">Heure du rendez-vous</label>
+                        <input id="timeR" name="myTime" [(ngModel)]="timeRdv" type="time" class="form-control col-md-6">
+                    </div>
+                </div>
+
+            </form>
+
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+            <div class="form-group modal-footer justify-content-center">
+                <button (click)="persistRDV()" type="submit" class="btn btn-success btn-lg">Enregistrer</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <table id="example" class="table table-striped table-hover table-fixed">
+            <thead class="thead-dark">
+
+                <tr>
+                    <th class="text-center" id="RDVl" scope="col" [appSort]="lesRendezVous" data-order="desc" data-name="date">Rendez-vous<i class="fa fa-unsorted" disabled></i></th>
+                    <th class="text-center" id="RDVetat" scope="col" [appSort]="lesRendezVous" data-order="desc" data-name="disponible">Etat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rdv of lesRendezVous let i = index">
+                    <td *ngIf=" rdv.agent.id == filtreAffiche">
+                        <div>
+                            <h4 class="mb-4 text-left"> Le {{rdv.date.substring(8, 10)}}/{{rdv.date.substring(5, 7)}}/{{rdv.date.substring(0, 4)}} à {{rdv.date.substring(11, 16)}}</h4>
+                            <div class="text-left">
+                                <label class="text-secondary">Avec l'agent: {{rdv.agent.nom }} {{rdv.agent.prenom}}</label>
+
+                            </div>
+
+                        </div>
+                    </td>
+                    <td *ngIf="rdv.agent.id == filtreAffiche">
+                        <div class=" text-center">
+                            <button *ngIf="rdv.disponible" class="btn btn-outline-success btn-sm" DISABLED> Aucun étudiant n'a pris ce rendez-vous</button>
+                            <button *ngIf="!rdv.disponible" class="btn btn-outline-danger btn-sm" DISABLED> Ce rendez-vous est pris par: <b>{{rdv.etudiant.nom}} {{rdv.etudiant.nom}}</b></button>
+                            <button (click)="deleteRDV(rdv.id)" *ngIf="rdv.disponible" class="btn btn-sm btn-danger ">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr *ngFor="let rdv of lesRendezVous let i = index">
+                    <td *ngIf="filtreAffiche == -1">
+                        <div>
+                            <h4 class="mb-4 text-left"> Le {{rdv.date.substring(8, 10)}}/{{rdv.date.substring(5, 7)}}/{{rdv.date.substring(0, 4)}} à {{rdv.date.substring(11, 16)}}</h4>
+                            <div class="text-left">
+                                <label class="text-secondary">Avec l'agent: {{rdv.agent.nom }} {{rdv.agent.prenom}}</label>
+
+                            </div>
+                        </div>
+                    </td>
+                    <td *ngIf="filtreAffiche == -1">
+                        <div class=" text-center">
+                            <button *ngIf="rdv.disponible" class="btn btn-outline-success btn-sm" DISABLED> Aucun étudiant n'a pris ce rendez-vous</button>
+                            <button *ngIf="!rdv.disponible" class="btn btn-outline-danger btn-sm" DISABLED> Ce rendez-vous est pris par: <b>{{rdv.etudiant.nom}} {{rdv.etudiant.nom}}</b></button>
+                            <button (click)="deleteRDV(rdv.id)" *ngIf="rdv.disponible" class="btn btn-sm btn-danger ">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

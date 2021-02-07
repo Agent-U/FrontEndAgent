@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
+import { Etudiant } from 'src/app/models/etudiant';
+import { EtudiantService } from 'src/app/services/etudiant.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  
+  estFerme = false;
+
+@Input() nbRdvPris: number = 0;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  switchOuvertFerme(){
+    this.estFerme = !this.estFerme;
   }
 
 }
