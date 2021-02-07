@@ -1,3 +1,25 @@
-.formAdd{
+thead,
+tbody,
+tr,
+td,
+th {
+    display: block;
+}
+
+tr:after {
+    content: ' ';
+    display: block;
     visibility: hidden;
+    clear: both;
+}
+
+tbody {
+    height: 360px;
+    overflow-y: auto;
+}
+
+tbody td,
+thead th {
+    width: 16.6%;
+    float: left;
 }

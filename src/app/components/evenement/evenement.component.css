@@ -1,0 +1,43 @@
+thead,
+tbody,
+tr,
+td,
+th {
+    display: block;
+}
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+tbody {
+    height: 600px;
+    overflow-y: auto;
+}
+
+tbody td,
+thead th {
+    width: 50%;
+    float: left;
+}
+
+#justBar {
+    width: 100%;
+    float: left;
+}
+
+#imageEvent{
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 700px;
+}
+
+.modal-content{
+    width: 200%;
+    margin-left: -50%;
+}

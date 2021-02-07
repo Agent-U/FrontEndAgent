@@ -1,6 +1,7 @@
 <h1>Liste des étudiants</h1>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#NouveauEtudiant" data-whatever="@getbootstrap">+ Nouveau</button>
+<button type="button" class="btn btn-warning btn-2x" data-toggle="modal" data-target="#NouveauEtudiant" data-whatever="@getbootstrap">
+    <i class="fa fa-user-plus fa-2x" aria-hidden="true "></i>  </button>
 
 <br/><br/>
 <div class="modal fade" id="NouveauEtudiant" tabindex="-1" role="dialog" aria-labelledby="NouveauEtudiantLabel" aria-hidden="true">
@@ -12,13 +13,6 @@
             <span aria-hidden="true">&times;</span>
           </button>
             </div>
-
-
-
-
-
-
-
 
             <div class="modal-body">
                 <form class="needs-validation" novalidate>
@@ -58,6 +52,8 @@
 
                 </form>
             </div>
+
+
             <div class="modal-footer">
                 <button (click)="resteEtudiant()" type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                 <button (click)="persistEtudiant()" type="button" class="btn btn-primary">Enregistrer</button>
@@ -67,7 +63,7 @@
 </div>
 
 <div class="row">
-    <table id="example" class="table table-striped table-bordered table-hover">
+    <table id="example" class="table table-striped table-bordered table-hover table-fixed">
         <thead class="thead-dark">
 
             <tr>
@@ -97,7 +93,7 @@
                         </button> &nbsp;
 
 
-                        <button (click)="deleteEtudiant(etu.ine)" class="btn btn-sm btn-dark">
+                        <button (click)="deleteEtudiant(etu.ine)" class="btn btn-sm btn-danger ">
                             <i class="fa fa-trash"></i>
                         </button>
                     </div>
@@ -167,6 +163,10 @@
         </tbody>
 
     </table>
+
+
+
+
 
 
 

@@ -16,7 +16,14 @@ import { SortDirective } from './directive/sort.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CourrierComponent } from './components/courrier/courrier.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+
 import { IncidentComponent } from './components/incident/incident.component';
+
+import { EvenementComponent } from './components/evenement/evenement.component';
+
+
+
+
 
 
 
@@ -28,7 +35,8 @@ import { IncidentComponent } from './components/incident/incident.component';
     SortDirective,
     CourrierComponent,
     AccueilComponent,
-    IncidentComponent    
+    IncidentComponent,  
+    EvenementComponent
   ],
   imports: [
     BrowserModule,
