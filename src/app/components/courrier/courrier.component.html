@@ -4,11 +4,11 @@
 
 
 <div class="row">
-    <table id="example" class="table table-striped table-bordered table-hover">
+    <table id="example" class="table table-striped  table-hover table-fixed">
         <thead class="thead-dark">
 
             <tr>
-                <th scope="col" [appSort]="etudiants" data-order="desc" data-name="ine">INE</th>
+                <th id="thIne" scope="col" [appSort]="etudiants" data-order="desc" data-name="ine">INE</th>
                 <th scope="col" [appSort]="etudiants" data-order="desc" data-name="nom">Nom</th>
                 <th scope="col" [appSort]="etudiants" data-order="desc" data-name="prenom">Prenom</th>
                 <th scope="col" [appSort]="etudiants" data-order="desc" data-name="mail">@mail</th>
@@ -42,16 +42,16 @@
                     <div class="text-center">{{ etu.chambre}}</div>
                 </td>
                 <td>
-                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].petiteEnveloppe" type="number" id="inputSpinPetitEnvloppe" value='{{ etu.petiteEnveloppe}}' min="0" class="col-md-4"> </div>
+                    <div class="text-center "><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].petiteEnveloppe" type="number" id="inputSpinPetitEnvloppe" value='{{ etu.petiteEnveloppe}}' min="0" class="col-md-6"> </div>
                 </td>
                 <td>
-                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].grandeEnveloppe" type="number" id="inputGrandeEnveloppe" value='{{ etu.grandeEnveloppe}}' min="0" class="col-md-4"></div>
+                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].grandeEnveloppe" type="number" id="inputGrandeEnveloppe" value='{{ etu.grandeEnveloppe}}' min="0" class="col-md-6"></div>
                 </td>
                 <td>
-                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].avisPassage" type="number" id="inputAvisPassage" value='{{ etu.avisPassage}}' min="0" class="col-md-4"></div>
+                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].avisPassage" type="number" id="inputAvisPassage" value='{{ etu.avisPassage}}' min="0" class="col-md-6"></div>
                 </td>
                 <td>
-                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].colis" type="number" id="inputSpinColis" value='{{ etu.colis}}' min="0" class="col-md-4"></div>
+                    <div class="text-center"><input (change)="DisplaySaveBtn(i)" [(ngModel)]="etudiants[i].colis" type="number" id="inputSpinColis" value='{{ etu.colis}}' min="0" class="col-md-6"></div>
                 </td>
                 <td tyle="width: 5.0%">
                     <div class="text-center">

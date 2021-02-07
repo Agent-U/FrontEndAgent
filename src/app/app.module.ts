@@ -16,6 +16,8 @@ import { SortDirective } from './directive/sort.directive';
 import { ReactiveFormsModule} from '@angular/forms';
 import { CourrierComponent } from './components/courrier/courrier.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
+import { RendezVousComponent } from './components/rendez-vous/rendez-vous.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 
@@ -29,7 +31,8 @@ import { AccueilComponent } from './components/accueil/accueil.component';
     EtudiantsComponent,
     SortDirective,
     CourrierComponent,
-    AccueilComponent
+    AccueilComponent,
+    RendezVousComponent
 
     
     
@@ -46,7 +49,8 @@ import { AccueilComponent } from './components/accueil/accueil.component';
     MatTableModule,
     BrowserAnimationsModule,
     DataTablesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot()
 
   ],
   providers: [],

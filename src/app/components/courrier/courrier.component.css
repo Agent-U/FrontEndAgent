@@ -1,0 +1,25 @@
+thead,
+tbody,
+tr,
+td,
+th {
+    display: block;
+}
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+tbody {
+    height: 600px;
+    overflow-y: auto;
+}
+
+tbody td,
+thead th {
+    width: 10%;
+    float: left;
+}
