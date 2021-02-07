@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 import { Etudiant } from 'src/app/models/etudiant';
 import { EtudiantService } from 'src/app/services/etudiant.service';
 
@@ -9,21 +9,18 @@ import { EtudiantService } from 'src/app/services/etudiant.service';
 })
 export class NavBarComponent implements OnInit {
   
-  etudiants: Etudiant[] = [];
+  estFerme = false;
 
+@Input() nbRdvPris: number = 0;
 
-
-  constructor(private etudiantService: EtudiantService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getEtudiants();
   }
 
 
-  getEtudiants(){
-    this.etudiantService.findAll()
-    .subscribe(etus => this.etudiants = etus)
+  switchOuvertFerme(){
+    this.estFerme = !this.estFerme;
   }
-
 
 }

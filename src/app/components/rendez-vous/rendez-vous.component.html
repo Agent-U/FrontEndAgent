@@ -70,7 +70,7 @@
             <thead class="thead-dark">
 
                 <tr>
-                    <th class="text-center" id="RDVl" scope="col" [appSort]="lesRendezVous" data-order="desc" data-name="id">Rendez-vous</th>
+                    <th class="text-center" id="RDVl" scope="col" [appSort]="lesRendezVous" data-order="desc" data-name="date">Rendez-vous<i class="fa fa-unsorted" disabled></i></th>
                     <th class="text-center" id="RDVetat" scope="col" [appSort]="lesRendezVous" data-order="desc" data-name="disponible">Etat</th>
                 </tr>
             </thead>
@@ -83,7 +83,7 @@
                                 <label class="text-secondary">Avec l'agent: {{rdv.agent.nom }} {{rdv.agent.prenom}}</label>
 
                             </div>
-                            {{lesRendezVous.length}}
+
                         </div>
                     </td>
                     <td *ngIf="rdv.agent.id == filtreAffiche">
@@ -101,7 +101,10 @@
                     <td *ngIf="filtreAffiche == -1">
                         <div>
                             <h4 class="mb-4 text-left"> Le {{rdv.date.substring(8, 10)}}/{{rdv.date.substring(5, 7)}}/{{rdv.date.substring(0, 4)}} à {{rdv.date.substring(11, 16)}}</h4>
+                            <div class="text-left">
+                                <label class="text-secondary">Avec l'agent: {{rdv.agent.nom }} {{rdv.agent.prenom}}</label>
 
+                            </div>
                         </div>
                     </td>
                     <td *ngIf="filtreAffiche == -1">
@@ -116,28 +119,6 @@
                 </tr>
 
             </tbody>
-
-            <!--   <tbody *ngIf="!aficheAllTable">
-                <tr *ngFor="let rdv of lRdvParAgent">
-                    <td>
-                        <div>
-                            <h4 class="mb-4 text-left"> -{{rdv.id}}- Le {{rdv.date.substring(8, 10)}}/{{rdv.date.substring(5, 7)}}/{{rdv.date.substring(0, 4)}} à {{rdv.date.substring(11, 16)}}</h4>
-
-                        </div>
-                    </td>
-                    <td>
-                        <div class=" text-center">
-                            <button *ngIf="rdv.disponible" class="btn btn-outline-success btn-sm" DISABLED> Aucun étudiant n'a pris ce rendez-vous</button>
-                            <button *ngIf="!rdv.disponible" class="btn btn-outline-danger btn-sm" DISABLED> Ce rendez-vous est pris par: <b>{{rdv.etudiant.nom}} {{rdv.etudiant.nom}}</b></button>
-                            <button *ngIf="rdv.disponible" class="btn btn-sm btn-danger ">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-
-            </tbody> 
-        -->
 
         </table>
 

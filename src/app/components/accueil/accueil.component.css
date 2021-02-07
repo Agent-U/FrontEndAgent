@@ -1,0 +1,24 @@
+#card-selection {
+    align-items: center;
+    margin-top: 200px;
+    margin-left: 50px;
+}
+
+.card {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-bottom: 100px;
+}
+
+.card-title {
+    font-style: oblique;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}

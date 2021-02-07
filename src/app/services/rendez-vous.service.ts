@@ -14,7 +14,6 @@ export class RendezVousService {
 
   findAll(){
     return this.http.get<RendezVous[]>(`${this.apiUrl}`);
-     
   }
 
 

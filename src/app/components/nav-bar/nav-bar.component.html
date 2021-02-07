@@ -1,6 +1,6 @@
 <hr/>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-top border-danger">
-    <a class="navbar-brand" href="#">Agent'U-Admin</a>
+    <a class="navbar-brand" href="#"><img src="../../../logoAgentU-cercle.svg" width="30" height="30" alt="">Agent'U-Admin</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,13 +29,20 @@
                 <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
                 
             </button>
-            <button type="button" class="btn btn-dark"> 
-                <span class="badge bg-danger ms-2">8</span>
-                <i class="fa fa-calendar fa-2x" ></i>
-            </button>
+            <a class="test" href="/rendezVous" data-toggle="tooltip" data-placement="bottom" title="Vous avez {{nbRdvPris}} rendez-vous pris!">
+                <button type="button" class="btn btn-dark"> 
+                    <span class="badge bg-danger ms-2">{{nbRdvPris}}</span>
+                    <i class="fa fa-calendar fa-2x" ></i>
+                </button>
+            </a>
 
+            <a *ngIf=!estFerme (click)="switchOuvertFerme()" class="test" data-toggle="tooltip" data-placement="bottom" title="L'accueil est ouvert. Cliquez pour indiquer sa fermeture">
+                <button type="button" class="btn btn-success">Ouvert</button>
+            </a>
 
-
+            <a *ngIf=estFerme (click)="switchOuvertFerme()" class="test" data-toggle="tooltip" data-placement="bottom" title="L'accueil est fermé. Cliquez pour indiquer son ouverture">
+                <button type="button" class="btn btn-danger">Fermé</button>
+            </a>
 
 
         </form>

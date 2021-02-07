@@ -23,3 +23,11 @@ thead th {
     width: 16.6%;
     float: left;
 }
+
+th {
+    text-align: center;
+}
+
+.fa-unsorted {
+    margin-left: 20px;
+}
