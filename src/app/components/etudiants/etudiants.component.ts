@@ -80,6 +80,7 @@ export class EtudiantsComponent implements OnInit {
     this.etudiantService.update(this.mEtudiant)
     .subscribe((etu) => {
       this.resteEtudiant();
+      this.getEtudiants();
     })
   }
 
