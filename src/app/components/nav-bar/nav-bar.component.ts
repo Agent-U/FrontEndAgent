@@ -1,6 +1,6 @@
 import { Component, OnInit ,Input} from '@angular/core';
 import { Etudiant } from 'src/app/models/etudiant';
-import { EtudiantService } from 'src/app/services/etudiant.service';
+import { AgentService } from 'src/app/services/agent.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,18 +9,33 @@ import { EtudiantService } from 'src/app/services/etudiant.service';
 })
 export class NavBarComponent implements OnInit {
   
-  estFerme = false;
+  estFerme : any;
 
 @Input() nbRdvPris: number = 0;
+@Input() nbNewIncidents: number = 0;
 
-  constructor() { }
+  constructor(private agentService: AgentService) { }
 
   ngOnInit(): void {
+    
+    this.getIsClose();
   }
 
 
   switchOuvertFerme(){
+    let resp = this.agentService.isCloseSwitch();
+    resp.subscribe((data)=>this.estFerme=data);
     this.estFerme = !this.estFerme;
   }
+
+
+
+public getIsClose(){
+  
+  let resp = this.agentService.isClose();
+  resp.subscribe((data)=>this.estFerme=data);
+}
+
+
 
 }

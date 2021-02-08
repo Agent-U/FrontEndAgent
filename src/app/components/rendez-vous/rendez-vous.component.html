@@ -32,11 +32,18 @@
                 <div class="form-row ">
 
                     <div class="form-group col-md-6">
-                        <select id="inputState" class="form-control">
-                            <option selected (click)="getAllRDV()">Veuillez selectionner un agent</option>
-                            <option *ngFor="let ag of lesAgents" (click)="rdvAgent(ag)">{{ag.nom}} {{ag.prenom}}</option>
+                        <select [(ngModel)]="selectAgent" name="nullAgent" id="inputState" class="form-control">
+                            <option selected value="init" (click)="getAllRDV()">Veuillez selectionner un agent</option>
+                            <option *ngFor="let ag of lesAgents" (click)="rdvAgent(ag)">{{ag.nom}} {{ag.prenom}} </option>
                         </select>
                     </div>
+                    <!--
+                    <div class="form-group col-md-6">
+                        <button class="btn btn-sm btn-warning "> Modifier la liste des agnents
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                    </div>
+                    -->
                 </div>
                 <hr/>
 

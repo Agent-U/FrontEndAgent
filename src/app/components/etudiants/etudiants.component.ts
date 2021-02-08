@@ -45,7 +45,7 @@ export class EtudiantsComponent implements OnInit {
   }
 
   deleteEtudiant(ine : any){
-    if(confirm("Are you sure to delete ")) {
+    if(confirm("La suppression d'un etudiant est irréversible.\nVoulez vous continuer? ")) {
       this.etudiantService.delete(ine)
       .subscribe(() => {
         this.etudiants = this.etudiants.filter(etudiant => etudiant.ine != ine)

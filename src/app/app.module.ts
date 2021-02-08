@@ -33,7 +33,7 @@ import { EvenementComponent } from './components/evenement/evenement.component';
     SortDirective,
     CourrierComponent,
     AccueilComponent,
-    RendezVousComponent
+    RendezVousComponent,
     IncidentComponent,  
     EvenementComponent
   ],
@@ -46,7 +46,7 @@ import { EvenementComponent } from './components/evenement/evenement.component';
     BrowserAnimationsModule,
     DataTablesModule,
     ReactiveFormsModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
     MatRadioModule
   ],
   exports: [],

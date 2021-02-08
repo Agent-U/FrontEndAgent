@@ -159,19 +159,6 @@ export class CourrierComponent implements OnInit {
   }
 
 
-  //onClick="this.style.visibility='hidden'"
-  //let togg1 = document.getElementById("inputSpinColis");
-  /*
-  public DisplaySaveBtn(){
 
-    let bs = document.getElementById("btnToSave");
-    if(bs!= null){
-      
-       bs.style.visibility='hidden';
-
-    }
-        
-  }
-  */
 
 }
