@@ -14,6 +14,8 @@ export class EvenementComponent implements OnInit {
   evemenetsListe : any;
   evenementDetail : any = null;
   evenementNouveau : Evenement = new Evenement();
+
+  eventTmp : any;
   uploadForm: any ; 
   constructor(private formBuilder: FormBuilder, private service : EvenementService) { 
   }
@@ -57,14 +59,27 @@ export class EvenementComponent implements OnInit {
       .subscribe((even) => {
         this.evemenetsListe = [even, ...this.evemenetsListe];
     })
+
+    
+    this.eventTmp.srcElement.value = null;
+
+    this.evenementNouveau = new Evenement();
+
   }
 
   onFileChanged(event : any) {
+    this.eventTmp = event;
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.uploadForm.get('profile').setValue(file);
     }
 
+  }
+
+  reset(){
+    this.eventTmp.srcElement.value = null;
+
+    this.evenementNouveau = new Evenement();
   }
 
 }
