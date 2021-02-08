@@ -39,3 +39,12 @@ th {
     width: 200%;
     margin-left: -50%;
 }
+
+#buttonAjout{
+    position: absolute;
+    bottom: 5%;
+    left: 44%;
+}
+.fa-unsorted {
+    margin-left: 20px;
+}
