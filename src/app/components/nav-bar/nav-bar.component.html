@@ -8,7 +8,7 @@
 
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                <a class="nav-link" href="#" [routerLink]="['']">Home </a>
+                <a class="nav-link" href="#" [routerLink]="['']">Home</a>
             </li>
             <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                 <a class="nav-link" href="etudiants" [routerLink]="['/etudiants']">Etudiants</a>
@@ -19,16 +19,24 @@
             <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                 <a class="nav-link" href="rendezVous" [routerLink]="['/rendezVous']">Rendez-Vous</a>
             </li>
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" href="incidents" [routerLink]="['/incidents']">Incidents</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" href="evenements" [routerLink]="['/evenements']">Evenements</a>
+            </li>
+
 
 
 
         </ul>
         <form class="d-flex">
-            <button type="button" class="btn btn-dark"> 
-                <span class="badge bg-danger ms-2">8</span>
-                <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
-                
-            </button>
+            <a class="test" href="/incidents" data-toggle="tooltip" data-placement="bottom" title="Vous avez {{nbNewIncidents}} d'incidents non traités!">
+                <button type="button" class="btn btn-dark"> 
+                        <span class="badge bg-danger ms-2">{{nbNewIncidents}}</span>
+                        <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+                    </button>
+            </a>
             <a class="test" href="/rendezVous" data-toggle="tooltip" data-placement="bottom" title="Vous avez {{nbRdvPris}} rendez-vous pris!">
                 <button type="button" class="btn btn-dark"> 
                     <span class="badge bg-danger ms-2">{{nbRdvPris}}</span>
@@ -36,11 +44,11 @@
                 </button>
             </a>
 
-            <a *ngIf=!estFerme (click)="switchOuvertFerme()" class="test" data-toggle="tooltip" data-placement="bottom" title="L'accueil est ouvert. Cliquez pour indiquer sa fermeture">
+            <a *ngIf=!estFerme.close (click)="switchOuvertFerme()" class="test" data-toggle="tooltip" data-placement="bottom" title="L'accueil est ouvert. Cliquez pour indiquer sa fermeture">
                 <button type="button" class="btn btn-success">Ouvert</button>
             </a>
 
-            <a *ngIf=estFerme (click)="switchOuvertFerme()" class="test" data-toggle="tooltip" data-placement="bottom" title="L'accueil est fermé. Cliquez pour indiquer son ouverture">
+            <a *ngIf=estFerme.close (click)="switchOuvertFerme()" class="test" data-toggle="tooltip" data-placement="bottom" title="L'accueil est fermé. Cliquez pour indiquer son ouverture">
                 <button type="button" class="btn btn-danger">Fermé</button>
             </a>
 

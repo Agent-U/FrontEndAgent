@@ -30,6 +30,17 @@ export class AgentService {
   update(agent : any){
     return this.http.put(this.apiUrl, agent);
   }
+
+
+  isClose(){
+    return this.http.get(`${this.apiUrl}isClose`);
+  }
+
+  isCloseSwitch(){
+    return this.http.get(`${this.apiUrl}switch`);
+  }
+
+
 }
 
 

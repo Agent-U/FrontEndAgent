@@ -36,8 +36,7 @@ export class IncidentComponent implements OnInit {
 
   openXl(content : any, incident : any) {
     this.modalService.open(content, { size: 'xl',  centered: true });
-   // let resp = this.service.getIncidentById(incident.id);
-   // resp.subscribe((data)=>this.incident=data);
+
    this.incident = incident;
     
   }

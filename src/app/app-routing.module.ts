@@ -5,7 +5,7 @@ import { CourrierComponent } from './components/courrier/courrier.component';
 import { EtudiantsComponent } from './components/etudiants/etudiants.component';
 import { RendezVousComponent } from './components/rendez-vous/rendez-vous.component';
 
-import { IncidentComponent } from ponents/incident/incident.component';
+import { IncidentComponent } from './components/incident/incident.component';
 import { EvenementComponent } from './components/evenement/evenement.component';
 
 
@@ -14,8 +14,8 @@ const routes: Routes = [
   {path:"etudiants",component:EtudiantsComponent},
   {path:"courriers",component:CourrierComponent},
   {path:"rendezVous",component:RendezVousComponent},
-  {path:"incidents",component:IncidentComponent}
-  {path:"evenement",component:EvenementComponent},
+  {path:"incidents",component:IncidentComponent},
+  {path:"evenements",component:EvenementComponent},
 
   
 

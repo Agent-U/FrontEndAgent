@@ -13,7 +13,7 @@ import { AgentService } from 'src/app/services/agent.service';
 export class RendezVousComponent implements OnInit {
 
 
-
+  selectAgent: any;
 
   dateRdv: any;
   timeRdv: any;
@@ -50,7 +50,6 @@ export class RendezVousComponent implements OnInit {
   ngOnInit(): void {
     this.getAllRDV();
     this.getAllAgents();
-    
   }
 
 
@@ -94,6 +93,8 @@ export class RendezVousComponent implements OnInit {
     })
    
     this.getAllRDV();
+    this.resetFormRDV()
+    
   }
 
   persistAgent(){
@@ -102,7 +103,10 @@ export class RendezVousComponent implements OnInit {
     .subscribe((etu) => {
         this.lesAgents = [etu, ...this.lesAgents];
     })
+
+    this.resetFormAgent();
   }
+
 
   updateAgent(){
     this.agentService.update(this.tempAgent)
@@ -113,12 +117,26 @@ export class RendezVousComponent implements OnInit {
 
 
   deleteRDV(id : any){
-    if(confirm("Are you sure to delete ")) {
+    if(confirm("Confirmez vous la suppression de ce rendez-vous?")) {
       this.rendezVousService.delete(id)
       .subscribe(() => {
         this.lesRendezVous = this.lesRendezVous.filter(rdv => rdv.id != id)
       })
     }
+  }
+
+
+  resetFormRDV(){
+    this.selectAgent = "init";
+    this.mAgent.nom="";
+    this.mAgent.prenom="";
+    this.dateRdv = null;
+    this.timeRdv = null;
+  }
+
+  resetFormAgent(){
+    this.mAgent.nom="";
+    this.mAgent.prenom="";
   }
   
 }
