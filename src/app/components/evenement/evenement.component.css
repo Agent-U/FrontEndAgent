@@ -24,20 +24,18 @@ thead th {
     float: left;
 }
 
-#justBar {
-    width: 100%;
-    float: left;
+th {
+    text-align: center;
 }
 
-#imageEvent{
-
+#imageEvent {
     margin-left: auto;
     margin-right: auto;
     width: 600px;
     height: 700px;
 }
 
-.modal-content{
+.modal-content {
     width: 200%;
     margin-left: -50%;
 }

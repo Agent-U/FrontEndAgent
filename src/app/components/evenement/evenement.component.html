@@ -1,3 +1,8 @@
+<br/>
+<h1>Gestion des événements</h1>
+<br/><br/><br/>
+
+
 <div class="card-deck">
     <div class="card">
 
@@ -5,7 +10,7 @@
 
             <table id="example" class="table table-striped table-hover table-fixed">
                 <thead class="thead-dark">
-    
+
                     <tr>
                         <th style="width:80%;" class="text-center" id="RDVl" scope="col" [appSort]="evemenetsListe" data-order="desc" data-name="id">Evenements</th>
                         <th style="width:20%;" class="text-center" id="RDVl" scope="col" [appSort]="evemenetsListe" data-order="desc" data-name="disponible"> Operations</th>
@@ -13,35 +18,34 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let even of evemenetsListe ">
-                        <td style="width:80%;" (click)=afficherDetail(even) >
+                        <td style="width:80%;" (click)=afficherDetail(even)>
                             <div>
-                                <h2  class="mb-4 text-left"> {{even.titre}} </h2>
-    
-    
+                                <h2 class="mb-4 text-left"> {{even.titre}} </h2>
+
+
                             </div>
-                            <div >
+                            <div>
                                 <h5 class="mb-4 text-left"> {{even.detail}}</h5>
-    
-    
+
+
                             </div>
                         </td>
-                        <td  style="width:20%;" >
+                        <td style="width:20%;">
                             <div class=" text-center">
                                 <br><br>
-                                <button (click)="deleteEvenemet(even)"  class="btn btn-md btn-danger ">
+                                <button (click)="deleteEvenemet(even)" class="btn btn-md btn-danger ">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>
                         </td>
                     </tr>
-    
+
                 </tbody>
-    
+
             </table>
-            
+
             <div class=" text-center">
-                                <br><br>
-                                <button  data-toggle="modal" data-target="#AjouterEvenement" data-whatever="@getbootstrap"  class="btn btn-lg btn-dark ">
+                <button data-toggle="modal" data-target="#AjouterEvenement" data-whatever="@getbootstrap" class="btn btn-lg btn-dark ">
                                     <i class="fa fa-plus"></i>
                                 </button>
             </div>
@@ -67,14 +71,14 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="inputTitre">Titre</label>
-                                        <input [(ngModel)]="evenementNouveau.titre" name="ine" type="text" class="form-control" id="inputTitre" placeholder="Titre" >
+                                        <input [(ngModel)]="evenementNouveau.titre" name="ine" type="text" class="form-control" id="inputTitre" placeholder="Titre">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="inputTitre">Detail</label>
-                                        <textarea [(ngModel)]="evenementNouveau.detail" name="ine" type="text" class="form-control" id="inputTitre" placeholder="Titre" >
+                                        <textarea [(ngModel)]="evenementNouveau.detail" name="ine" type="text" class="form-control" id="inputTitre" placeholder="Titre">
                                             </textarea>
                                     </div>
                                 </div>
@@ -91,16 +95,14 @@
 
                             </form>
                         </div>
-                        
+
                         <div class="modal-footer">
-                            <button  type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                            <button type="submit" data-dismiss="modal"  (click)="ajouterEvenemet()" type="button" class="btn btn-primary">Ajouter</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="submit" data-dismiss="modal" (click)="ajouterEvenemet()" type="button" class="btn btn-primary">Ajouter</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-
 
 
             <!--modal-->
@@ -112,7 +114,7 @@
 
     <div class="card">
 
-        <img *ngIf=" evenementDetail != null " src="assets/evenement/{{evenementDetail.image_url}}" alt="image" id="imageEvent"/>
+        <img *ngIf=" evenementDetail != null " src="assets/evenement/{{evenementDetail.image_url}}" alt="image" id="imageEvent" />
 
 
     </div>

@@ -1,59 +1,67 @@
-<hr/>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark border-top border-danger">
-    <a class="navbar-brand" href="#"><img src="../../../logoAgentU-cercle.svg" width="30" height="30" alt="">Agent'U-Admin</a>
-    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+<div class="contenu">
+
+    <div class="toolbar" role="banner">
+        <div class="row" style="width: 100%;">
+            <div class="col-8 image_logo">
+                <img id="logo" style="margin-left: 75%;" src="../../../assets/logoAgentU0bg.png" width="80" height="80" alt="">
+            </div>
+        </div>
+
+    </div>
+    <span class="horizontal-line"></span>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-top border-danger">
+        <a class="navbar-brand" href="#"><img src="../../../assets/logoAgentCercle.png" width="40" height="40" alt=""> Agent'U-Admin</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
 
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                <a class="nav-link" href="#" [routerLink]="['']">Home</a>
-            </li>
-            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                <a class="nav-link" href="etudiants" [routerLink]="['/etudiants']">Etudiants</a>
-            </li>
-            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                <a class="nav-link" href="courriers" [routerLink]="['/courriers']">Courriers</a>
-            </li>
-            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                <a class="nav-link" href="rendezVous" [routerLink]="['/rendezVous']">Rendez-Vous</a>
-            </li>
-            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                <a class="nav-link" href="incidents" [routerLink]="['/incidents']">Incidents</a>
-            </li>
-            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                <a class="nav-link" href="evenements" [routerLink]="['/evenements']">Evenements</a>
-            </li>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" href="#" [routerLink]="['']">Accueil</a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" href="etudiants" [routerLink]="['/etudiants']">Etudiants</a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" href="courriers" [routerLink]="['/courriers']">Courriers</a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" href="rendezVous" [routerLink]="['/rendezVous']">Rendez-Vous</a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" href="incidents" [routerLink]="['/incidents']">Incidents</a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" href="evenements" [routerLink]="['/evenements']">Evenements</a>
+                </li>
 
+            </ul>
 
-
-
-        </ul>
-        <form class="d-flex">
-            <a class="test" href="/incidents" data-toggle="tooltip" data-placement="bottom" title="Vous avez {{nbNewIncidents}} d'incidents non traités!">
-                <button type="button" class="btn btn-dark"> 
+            <form class="d-flex">
+                <a class="test" href="/incidents" data-toggle="tooltip" data-placement="bottom" title="Vous avez {{nbNewIncidents}} d'incidents non traités!">
+                    <button type="button" class="btn btn-dark"> 
                         <span class="badge bg-danger ms-2">{{nbNewIncidents}}</span>
                         <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
                     </button>
-            </a>
-            <a class="test" href="/rendezVous" data-toggle="tooltip" data-placement="bottom" title="Vous avez {{nbRdvPris}} rendez-vous pris!">
-                <button type="button" class="btn btn-dark"> 
+                </a>
+                <a class="test" href="/rendezVous" data-toggle="tooltip" data-placement="bottom" title="Vous avez {{nbRdvPris}} rendez-vous pris!">
+                    <button type="button" class="btn btn-dark"> 
                     <span class="badge bg-danger ms-2">{{nbRdvPris}}</span>
                     <i class="fa fa-calendar fa-2x" ></i>
                 </button>
-            </a>
+                </a>
 
-            <a *ngIf=!estFerme.close (click)="switchOuvertFerme()" class="test" data-toggle="tooltip" data-placement="bottom" title="L'accueil est ouvert. Cliquez pour indiquer sa fermeture">
-                <button type="button" class="btn btn-success">Ouvert</button>
-            </a>
+                <a *ngIf=!estFerme.close (click)="switchOuvertFerme()" class="accueilOuvFerm" data-toggle="tooltip" data-placement="bottom" title="L'accueil est ouvert. Cliquez pour indiquer sa fermeture">
+                    <button type="button" class="btn btn-success ">Ouvert</button>
+                </a>
 
-            <a *ngIf=estFerme.close (click)="switchOuvertFerme()" class="test" data-toggle="tooltip" data-placement="bottom" title="L'accueil est fermé. Cliquez pour indiquer son ouverture">
-                <button type="button" class="btn btn-danger">Fermé</button>
-            </a>
+                <a *ngIf=estFerme.close (click)="switchOuvertFerme()" class="accueilOuvFerm" data-toggle="tooltip" data-placement="bottom" title="L'accueil est fermé. Cliquez pour indiquer son ouverture">
+                    <button type="button" class="btn btn-danger ">Fermé</button>
+                </a>
 
 
-        </form>
+            </form>
 
-    </div>
-</nav>
+        </div>
+    </nav>
