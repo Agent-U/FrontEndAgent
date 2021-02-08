@@ -19,7 +19,7 @@
                 <td class="text-center">{{ incident?.motif}}</td>
                 <td class="text-center">{{incident?.lieu}}</td>
                 <td class="text-center">{{incident?.date.substring(8, 10)}}/{{incident?.date.substring(5, 7)}}/{{incident?.date.substring(0, 4)}}</td>
-                <td class="text-center">{{ incident?.etudiant.ine}}</td>
+                <td class="text-center">{{ incident?.etudiant.nom}} {{ incident?.etudiant.prenom}}</td>
                 <td class="text-center" [ngSwitch]="incident.etat">
                     <div id="Encours" *ngSwitchCase="1">En cours</div>
                     <div id="Recolu" *ngSwitchCase="2">Résolu</div>
