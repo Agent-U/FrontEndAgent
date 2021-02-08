@@ -36,6 +36,4 @@ public getIsClose(){
   resp.subscribe((data)=>this.estFerme=data);
 }
 
-
-
 }
