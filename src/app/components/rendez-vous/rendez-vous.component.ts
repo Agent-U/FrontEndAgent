@@ -138,5 +138,21 @@ export class RendezVousComponent implements OnInit {
     this.mAgent.nom="";
     this.mAgent.prenom="";
   }
+
+  aDesRDV(ag : Agent){
+    if(ag.rendezVous != null){
+      return ag.rendezVous.length==0;
+    }
+    return true;
+  }
+
+  deleteAgent(id : any){
+    if(confirm("La suppression d'un agent est irréversible.\nVoulez vous continuer? ")) {
+      this.agentService.delete(id)
+      .subscribe(() => {
+        this.lesAgents = this.lesAgents.filter(agent => agent.id != id)
+      })
+    }
+  }
   
 }
