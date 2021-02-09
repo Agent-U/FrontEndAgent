@@ -18,6 +18,11 @@ export class EtudiantService {
   }
 
 
+  getEtudiant(ine : any){
+    return this.http.get(`${this.apiUrl}delete/${ine}`);
+  }
+
+
 
   
 

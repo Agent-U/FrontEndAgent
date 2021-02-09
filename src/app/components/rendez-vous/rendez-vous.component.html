@@ -158,7 +158,7 @@
                     <td *ngIf="rdv.agent.id == filtreAffiche">
                         <div class=" text-center">
                             <button *ngIf="rdv.disponible" class="btn btn-outline-success btn-sm" DISABLED> Aucun étudiant n'a pris ce rendez-vous</button>
-                            <button *ngIf="!rdv.disponible" class="btn btn-outline-danger btn-sm" DISABLED> Ce rendez-vous est pris par: <b>{{rdv.etudiant.nom}} {{rdv.etudiant.nom}}</b></button>
+                            <button *ngIf="!rdv.disponible" class="btn btn-outline-danger btn-sm" DISABLED> Ce rendez-vous est pris par: <b>{{rdv.etudiant.nom}} {{rdv.etudiant.prenom}}</b></button>
                             <button (click)="deleteRDV(rdv.id)" *ngIf="rdv.disponible" class="btn btn-sm btn-danger ">
                                 <i class="fa fa-trash"></i>
                             </button>
@@ -179,7 +179,7 @@
                     <td *ngIf="filtreAffiche == -1">
                         <div class=" text-center">
                             <button *ngIf="rdv.disponible" class="btn btn-outline-success btn-sm" DISABLED> Aucun étudiant n'a pris ce rendez-vous</button>
-                            <button *ngIf="!rdv.disponible" class="btn btn-outline-danger btn-sm" DISABLED> Ce rendez-vous est pris par: <b>{{rdv.etudiant.nom}} {{rdv.etudiant.nom}}</b></button>
+                            <button *ngIf="!rdv.disponible" class="btn btn-outline-danger btn-sm" DISABLED> Ce rendez-vous est pris par: <b>{{rdv.etudiant.nom}} {{rdv.etudiant.prenom}}</b></button>
                             <button (click)="deleteRDV(rdv.id)" *ngIf="rdv.disponible" class="btn btn-sm btn-danger ">
                                 <i class="fa fa-trash"></i>
                             </button>

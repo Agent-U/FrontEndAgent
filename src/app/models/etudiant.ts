@@ -1,3 +1,5 @@
+import { RendezVous } from "./rendez-vous";
+
 export interface Etudiant {
         ine: string;
         nom: string;
@@ -14,5 +16,6 @@ export interface Etudiant {
         dateGrandeEnveloppe: any;
         dateAvisPassage: any;
         dateColis: any;
+        
 }
 
